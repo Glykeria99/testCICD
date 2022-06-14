@@ -30,5 +30,5 @@ jobs:
     - name: Build Dockerfile
       run: |
         docker build -t glykeriaf/test_cicd:$(date +'%Y-%m-%d') .
-        echo ${{ secrets.DOCKER_TOKEN }} | docker login -u glykeriaf -p $ {{ DOCKER_PASSWORD }}
+        echo ${{ secrets.DOCKER_TOKEN }} | docker login -u glykeriaf -p ${{ secrets.DOCKER_PASSWORD }}
         docker push glykeriaf/test_cicd:$(date +'%Y-%m-%d')
