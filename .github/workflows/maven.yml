@@ -26,7 +26,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: mvn -B package org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar -Dsonar.projectKey=Glykeria99_testCICD
+      run: mvn -B package org.sonarsource.scanner.maven:sonar-maven-plugin:3.7:sonar -Dsonar.projectKey=Glykeria99_testCICD
     - name: Build Dockerfile
       run: docker build -t glykeriaf/test_cicd .
     - name: Docker Login
