@@ -14,7 +14,7 @@
 	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
-		<sonar.organization>nikosnikolaidis</sonar.organization>
+		<sonar.organization>Glykeria99</sonar.organization>
 		<sonar.host.url>sonarcloud.io</sonar.host.url>
 		<java.version>1.8</java.version>
 	</properties>
