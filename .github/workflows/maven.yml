@@ -23,13 +23,12 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-     env:
+      env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: mvn -B package org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=Glykeria99_testCICD
     - name: Build Dockerfile
-      run: docker build -t glykeriaf/test_cicd .
-    - name: Docker Login
-      run: docker login -u glykeriaf -p ${{ secrets.DOCKER_PASSWORD }}
-    - name: Docker Publish
-      run: docker push glykeriaf/test_cicd
+      run: |
+        docker build -t glykeriaf/test_cicd:$(date +'%Y-%m-%d') .
+        echo ${{ secrets.DOCKER_TOKEN }} | docker login -u glykeriaf --password-stdin
+        docker push glykeriaf/test_cicd:$(date +'%Y-%m-%d')
