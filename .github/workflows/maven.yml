@@ -26,7 +26,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Build Dockerfile
       run: docker build -t glykeriaf/test_cicd .
-    - name: Docker Login\
-      run: docker login -u glykeriaf -p $ {{ DOCKER_PASSWORD }}
+    - name: Docker Login
+      run: docker login -u glykeriaf -p $ {{ secrets.DOCKER_PASSWORD }}
     - name: Docker Publish
       run: docker push glykeriaf/test_cicd
