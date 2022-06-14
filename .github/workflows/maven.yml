@@ -27,6 +27,6 @@ jobs:
     - name: Build Dockerfile
       run: docker build -t glykeriaf/test_cicd .
     - name: Docker Login
-      run: docker login -u glykeriaf -p $ {{ secrets.DOCKER_PASSWORD }}
+      run: docker login -u glykeriaf -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Docker Publish
       run: docker push glykeriaf/test_cicd
